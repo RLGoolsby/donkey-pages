@@ -3,7 +3,7 @@
  *********/
 // main app menu component
 Vue.component("app-menu", {
-    template: `
+  template: `
   <nav class="green lighten-1">
     <div class="nav-wrapper container">
       <div class="col s12">
@@ -22,13 +22,13 @@ Vue.component("app-menu", {
 // card component for contact page
 // with props
 Vue.component("app-cards", {
-    props: ["contactlist"],
-    methods: {
-        ucfirst: function (string) {
-            return string.charAt(0).toUpperCase() + string.slice(1);
-        }
-    },
-    template: `
+  props: ["contactlist"],
+  methods: {
+    ucfirst: function (string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+  },
+  template: `
     <div class="row">
     <div class="col s6" v-for="cc in contactlist.results">
         <div class="card horizontal">
@@ -53,7 +53,7 @@ Vue.component("app-cards", {
 // main app preloader component
 // show preloader when fetching api
 Vue.component("app-preloader", {
-    template: `
+  template: `
   <div class="center-align">
       <div class="preloader-wrapper big active">
       <div class="spinner-layer spinner-blue-only">
@@ -73,7 +73,7 @@ Vue.component("app-preloader", {
 });
 // main app footer component
 Vue.component("app-footer", {
-    template: `
+  template: `
   <footer class="page-footer green lighten-1">
           <div class="container">
             <div class="row">
@@ -103,7 +103,7 @@ Vue.component("app-footer", {
 });
 // home page component
 const HomeComponent = {
-    template: `
+  template: `
   <div class="page-template page-template-home">
     <div class="hero teal lighten-5">
         <div class="hero-content container center-align">
@@ -184,7 +184,7 @@ const HomeComponent = {
 };
 // about page component
 const AboutComponent = {
-    template: `
+  template: `
   <div class="page-template page-template-about">
     <div class="page-title">
         <div class="container">
@@ -231,42 +231,42 @@ const AboutComponent = {
 };
 // contacts page component
 const ContactsComponent = {
-    data() {
-        return {
-            isLoading: false,
-            api: {
-                url: "https://randomuser.me/api/",
-                results: 100,
-                nat: "us,dk,fr,gb"
-            },
-            contacts: [],
-            errors: []
-        };
-    },
-    methods: {
-        fetchContacts: function () {
-            this.isLoading = true;
-            axios
-                .get(this.api.url, {
-                    params: {
-                        results: this.api.results,
-                        nat: this.api.nat
-                    }
-                })
-                .then(response => {
-                    this.contacts = response.data;
-                    this.isLoading = false;
-                })
-                .catch(error => {
-                    this.errors = error;
-                    this.isLoading = false;
-                });
-        }
-    },
-    mounted: function () {
-        this.fetchContacts();
-    },
-    template: `
+  data() {
+    return {
+      isLoading: false,
+      api: {
+        url: "https://randomuser.me/api/",
+        results: 100,
+        nat: "us,dk,fr,gb"
+      },
+      contacts: [],
+      errors: []
+    };
+  },
+  methods: {
+    fetchContacts: function () {
+      this.isLoading = true;
+      axios
+        .get(this.api.url, {
+          params: {
+            results: this.api.results,
+            nat: this.api.nat
+          }
+        })
+        .then(response => {
+          this.contacts = response.data;
+          this.isLoading = false;
+        })
+        .catch(error => {
+          this.errors = error;
+          this.isLoading = false;
+        });
+    }
+  },
+  mounted: function () {
+    this.fetchContacts();
+  },
+  template: `
   <div class="page-template page-template-contact container">
     <h1>Contacts</h1>
     <app-preloader v-if="isLoading" />
@@ -278,7 +278,7 @@ const ContactsComponent = {
 };
 // 404 page component
 const PageNotFound = {
-    template: `
+  template: `
   <div class="page-template page-template-not-found">
     <div class="page-title">
       <div class="container">
@@ -296,18 +296,18 @@ const PageNotFound = {
  * routing
  *********/
 const routes = [
-    { path: "/", component: HomeComponent },
-    { path: "/about", component: AboutComponent },
-    { path: "/contacts", component: ContactsComponent },
-    { path: "*", component: PageNotFound }
+  { path: "/", component: HomeComponent },
+  { path: "/about", component: AboutComponent },
+  { path: "/contacts", component: ContactsComponent },
+  { path: "*", component: PageNotFound }
 ];
 const router = new VueRouter({
-    routes
+  routes
 });
 /*********
  * main application
  *********/
 const app = new Vue({
-    el: "#app",
-    router
+  el: "#app",
+  router
 });

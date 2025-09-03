@@ -5,6 +5,9 @@
 
         h1 {
             margin: 0;
+            font-size: 24px;
+            color: aquarine;
+            background-color: black;
         }
     }
 
@@ -32,4 +35,41 @@
             }
         }
     }
+}
+
+.brand-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff !important;
+    background-color: transparent !important;
+}
+
+nav.green.lighten-1 {
+    background-color: aquarine !important;
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+nav.green.darken-1 {
+    background-color: aquarine !important;
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.main-content {
+    width: 100%;
+    min-height: 500px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
 }
